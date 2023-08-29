@@ -1,0 +1,22 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+.header {
+  height: 50px;
+  text-align: center;
+  padding: 16px;
+}
+
+.header a {
+  margin: 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.outlet {
+  flex: 1;
+}

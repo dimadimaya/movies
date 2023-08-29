@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Movies from "./pages/Movies/Movies";
+import { SharedLayout } from "./components/SharedLayout/SharedLayout";
+import MovieDetails from "./components/MovieDetails/MovieDeatails";
+import TopRated from "./pages/TopRated/TopRated";
+import Upcoming from "./pages/Upcoming/Upcoming";
+import TrendingTv from "./pages/TrendingTv/TrendingTv";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+          <Route path="top" element={<TopRated />} />
+          <Route path="upcoming" element={<Upcoming />} />
+          <Route path="trendingtv" element={<TrendingTv />} />
+          {/* <Route path="search" element={<Search query={query} />} /> */}
+          <Route path="movies/:movieId" element={<MovieDetails />}></Route>
+        </Route>
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
   );
 }
 
